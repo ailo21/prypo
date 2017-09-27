@@ -1,0 +1,17 @@
+﻿<#@ template language="C#" debug="True" hostSpecific="True"                           #>
+<#@ output extension=".generated.cs"                                                  #>
+<#@ include file="$(ProjectDir)LinqToDB.Templates\LinqToDB.SqlServer.SqlTypes.Tools.ttinclude"     #>
+
+<#
+  NamespaceName = "pg.dbase.models";
+  DataContextName   = "CMSdb";
+  DefaultConfiguration = "CMSdb";
+  GenerateConstructors = true; 
+  
+  LoadSqlServerMetadata("Data Source=.\SQLExpress;Initial Catalog=aspnet-prypo-20170926115414;Integrated Security=True");
+  
+  //Tables = Tables.Where(p => p.Value.TableName.StartsWith("Orgs")).ToDictionary(p => p.Key, p => p.Value);
+  //Procedures = Procedures.Where(p => p.Value.ProcedureName.StartsWith("cms_")).ToDictionary(p => p.Key, p => p.Value);
+  
+  GenerateModel();                                            
+#>
